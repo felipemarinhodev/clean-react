@@ -40,7 +40,7 @@ module.exports = {
     historyApiFallback: true
   },
   externals: {
-    react: 'react',
+    react: 'React',
     'react-dom': 'ReactDOM'
   },
   plugins: [
