@@ -1,3 +1,3 @@
 export const makeApiUrl = (path: string): string => (
-  `http://fordevs.herokuapp.com/api${path}`
+  `process.env.API_URL${path}`
 )
