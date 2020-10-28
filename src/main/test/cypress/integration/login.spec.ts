@@ -4,6 +4,7 @@ const baseUrl: string = Cypress.config().baseUrl
 
 describe('Login', () => {
   beforeEach(() => {
+    cy.server()
     cy.visit('login')
   })
   it('Should load with correct initial state', () => {
