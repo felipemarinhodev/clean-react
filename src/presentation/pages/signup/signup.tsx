@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import Styles from './signup-styles.scss'
 
-import Context from '@/presentation/contexts/form/form-context'
 import {
   LoginHeader,
   Footer,
@@ -12,18 +11,18 @@ import {
   SubmitButton
 } from '@/presentation/components'
 import { Validation } from '@/presentation/protocols/validation'
+import { ApiContext, FormContext } from '@/presentation/contexts'
 import {
-  AddAccount,
-  UpdateCurrentAccount
+  AddAccount
 } from '@/domain/usecases'
 
 type Props = {
   validation: Validation
   addAccount: AddAccount
-  updateCurrentAccount: UpdateCurrentAccount
 }
 
-const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount }: Props) => {
+const SignUp: React.FC<Props> = ({ validation, addAccount }: Props) => {
+  const { setCurrentAccount } = useContext(ApiContext)
   const history = useHistory()
   const [state, setState] = useState({
     isLoading: false,
@@ -70,7 +69,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
         password: state.password,
         passwordConfirmation: state.passwordConfirmation
       })
-      await updateCurrentAccount.save(account)
+      setCurrentAccount(account)
       history.replace('/')
     } catch (error) {
       setState({
@@ -84,7 +83,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
   return (
     <div className={Styles.signupWrap}>
       <LoginHeader />
-      <Context.Provider value={{ state, setState }}>
+      <FormContext.Provider value={{ state, setState }}>
         <form
           className={Styles.form}
           data-testid="form"
@@ -106,7 +105,7 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, updateCurrentAccount 
           </Link>
           <FormStatus />
         </form>
-      </Context.Provider>
+      </FormContext.Provider>
       <Footer />
     </div>
   )
