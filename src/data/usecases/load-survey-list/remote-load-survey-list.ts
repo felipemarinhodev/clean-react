@@ -1,9 +1,9 @@
-import { LoadServeyList } from './../../../domain/usecases/load-survey-list'
 import { HttpGetClient, HttpStatusCode } from '@/data/protocols/http'
+import { LoadSurveyList } from '@/domain/usecases'
 import { UnexpectedError } from '@/domain/errors'
 import { SurveyModel } from '@/domain/models'
 
-export class RemoteLoadSurveyList implements LoadServeyList {
+export class RemoteLoadSurveyList implements LoadSurveyList {
   constructor (
     private readonly url: string,
     private readonly httpGetClient: HttpGetClient<SurveyModel[]>

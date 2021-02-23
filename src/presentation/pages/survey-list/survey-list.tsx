@@ -1,16 +1,16 @@
-import Styles from './list-styles.scss'
+import Styles from './survey-list-styles.scss'
 import { Footer, Header } from '@/presentation/components'
 import {
   SurveyContext,
   SurveyListItem,
   Error
 } from '@/presentation/pages/survey-list/components'
-import { LoadServeyList } from '@/domain/usecases'
+import { LoadSurveyList } from '@/domain/usecases'
 import { SurveyModel } from '@/domain/models'
 import React, { useEffect, useState } from 'react'
 
 type Props = {
-  loadSurveyList: LoadServeyList
+  loadSurveyList: LoadSurveyList
 }
 
 const SurveyList: React.FC<Props> = ({ loadSurveyList }: Props) => {
