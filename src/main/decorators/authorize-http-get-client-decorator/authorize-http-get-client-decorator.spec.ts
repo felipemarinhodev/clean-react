@@ -1,4 +1,3 @@
-import { mockAccountModel } from './../../../domain/test/mock-account'
 import { HttpGetParams } from '@/data/protocols/http'
 import {
   GetStorageSpy,
@@ -7,6 +6,7 @@ import {
 } from '@/data/test'
 import { AuthorizeHttpGetClientDecorator } from '@/main/decorators'
 import faker from 'faker'
+import { mockAccountModel } from './../../../domain/test/mock-account'
 
 type SutTypes = {
   sut: AuthorizeHttpGetClientDecorator
@@ -70,5 +70,11 @@ describe('AuthorizeHttpGetClientDecorator', () => {
       field,
       'x-access-token': getStorageSpy.value.accessToken
     })
+  })
+
+  test('Should return the same result as HttpGetClient', async () => {
+    const { sut, httpGetClientSpy } = makeSut()
+    const httpResponse = await sut.get(mockGetRequest())
+    expect(httpResponse).toEqual(httpGetClientSpy.response)
   })
 })
