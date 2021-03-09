@@ -1,3 +1,4 @@
+import { mockAccountModel } from '@/domain/test'
 import { HttpGetParams } from '@/data/protocols/http'
 import {
   GetStorageSpy,
@@ -6,7 +7,6 @@ import {
 } from '@/data/test'
 import { AuthorizeHttpGetClientDecorator } from '@/main/decorators'
 import faker from 'faker'
-import { mockAccountModel } from './../../../domain/test/mock-account'
 
 type SutTypes = {
   sut: AuthorizeHttpGetClientDecorator
