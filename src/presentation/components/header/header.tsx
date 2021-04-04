@@ -1,8 +1,8 @@
-import React, { memo, useContext } from 'react'
 import { Logo } from '@/presentation/components'
 
 import Styles from './header-styles.scss'
 import { ApiContext } from '@/presentation/contexts'
+import React, { memo, useContext } from 'react'
 import { useHistory } from 'react-router'
 
 const Header: React.FC = () => {

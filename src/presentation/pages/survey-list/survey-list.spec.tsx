@@ -1,6 +1,6 @@
+import { LoadSurveyList } from '@/domain/usecases'
 import { UnexpectedError } from '@/domain/errors'
 import { mockAccountModel, mockSurveyListModel } from '@/domain/test'
-import { LoadSurveyList } from '@/domain/usecases'
 import { ApiContext } from '@/presentation/contexts'
 import { SurveyList } from '@/presentation/pages'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
