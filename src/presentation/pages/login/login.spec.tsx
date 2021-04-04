@@ -1,11 +1,12 @@
 import { InvalidCredentialsError } from '@/domain/errors'
 import { Authentication } from '@/domain/usecases'
+import { AuthenticationSpy } from '@/domain/test'
 import { ApiContext } from '@/presentation/contexts'
 import { Login } from '@/presentation/pages'
 import {
-  AuthenticationSpy,
   Helper, ValidationStub
 } from '@/presentation/test'
+
 import React from 'react'
 import {
   fireEvent, render,
