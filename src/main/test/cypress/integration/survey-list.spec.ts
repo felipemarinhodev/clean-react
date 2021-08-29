@@ -9,9 +9,16 @@ describe('Login', () => {
       name: faker.name.findName()
     })
   })
+
   it('Should present error on UnexpectedError', () => {
     Http.mockUnexpectedError()
     cy.visit('')
     cy.getByTestId('error').should('contain.text', 'Algo de errado aconteceu. Tente novamente mais tarde')
+  })
+
+  it('Should logout when AccessDeniedError', () => {
+    Http.mockAccessDeniedError()
+    cy.visit('')
+    Helper.testUrl('/login')
   })
 })
