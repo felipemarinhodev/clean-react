@@ -5,7 +5,7 @@ export const mockSurveyModel = (): LoadSurveyList.Model => ({
   id: faker.random.uuid(),
   question: faker.random.words(10),
   date: faker.date.recent(),
-  didAnwser: faker.random.boolean()
+  didAnswer: faker.random.boolean()
 })
 
 export const mockSurveyListModel = (): LoadSurveyList.Model[] => [

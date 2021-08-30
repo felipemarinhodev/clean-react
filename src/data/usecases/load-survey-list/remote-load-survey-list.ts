@@ -27,6 +27,6 @@ export namespace RemoteLoadSurveyList {
     id: string
     question: string
     date: string
-    didAnwser: boolean
+    didAnswer: boolean
   }
 }

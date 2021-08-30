@@ -66,19 +66,19 @@ describe('RemoteLoadSurveyList', () => {
         id: httpResult[0].id,
         question: httpResult[0].question,
         date: new Date(httpResult[0].date),
-        didAnwser: httpResult[0].didAnwser
+        didAnswer: httpResult[0].didAnswer
       },
       {
         id: httpResult[1].id,
         question: httpResult[1].question,
         date: new Date(httpResult[1].date),
-        didAnwser: httpResult[1].didAnwser
+        didAnswer: httpResult[1].didAnswer
       },
       {
         id: httpResult[2].id,
         question: httpResult[2].question,
         date: new Date(httpResult[2].date),
-        didAnwser: httpResult[2].didAnwser
+        didAnswer: httpResult[2].didAnswer
       }
     ])
   })
